@@ -6,7 +6,7 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <h1>And we're off the ground!! <span role="img" aria-label="Rocket">🚀</span> </h1>
+                <h1>Todos</h1>
                 <Todos />
             </div>
         )
