@@ -7,13 +7,22 @@ class Todos extends React.Component {
         super();
 
         this.state = {
-            todos: [{description: 'make breakfast', completed: true}, {description: 'meet with wedding planner', completed: false}]
+            todos: [{
+                description: 'make breakfast',
+                completed: true
+            }, {
+                description: 'meet with wedding planner',
+                completed: false
+            }]
         }
     }
     addTodoItem = event => {
-        if(event.keyCode === 13 && event.target.value) {
+        if (event.keyCode === 13 && event.target.value) {
             let todos = this.state.todos.slice();
-            todos.push({description: event.target.value, completed: false});
+            todos.push({
+                description: event.target.value,
+                completed: false
+            });
             this.setState({
                 todos: todos
             })
@@ -31,16 +40,15 @@ class Todos extends React.Component {
     }
     render() {
         return (
-            <div>
-                <input type="text" placeholder="What would you like to do?" onKeyUp={this.addTodoItem} />
-                {/* 
-                NB: It's not best practice to use index as key. 
-                index is used for key cos this is a rather trivial scenario. 
-                */}
-                {this.state.todos.map( (todo, index) => {
-                    return <Todo key={index} description={todo.description} completed={todo.completed} toggleCompletionStatus={() => this.toggleCompletionStatus(index)} />
-                })}
-                <CompletionCount todos={this.state.todos} />
+            <div className = "container" >
+                <input id="new-todo" type = "text" placeholder = "What would you like to do?" onKeyUp = {this.addTodoItem}/>
+                { /* NB: It's not best practice to use index as key. index is used for key cos this is a rather trivial scenario. */}
+                {
+                    this.state.todos.map((todo, index) => {
+                        return <Todo key = {index} description = {todo.description} completed = {todo.completed} toggleCompletionStatus = {() => this.toggleCompletionStatus(index)} />
+                    })
+                }
+                <CompletionCount todos = {this.state.todos} />
             </div>
         )
     }

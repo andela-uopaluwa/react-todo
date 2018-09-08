@@ -5,8 +5,8 @@ import Todos from './Todos';
 class App extends React.Component {
     render() {
         return (
-            <div>
-                <h1>Todos</h1>
+            <div className="App">
+                <h1 className="main-title">Todos</h1>
                 <Todos />
             </div>
         )
