@@ -45,7 +45,7 @@ class Todos extends React.Component {
                 { /* NB: It's not best practice to use index as key. index is used for key cos this is a rather trivial scenario. */}
                 {
                     this.state.todos.map((todo, index) => {
-                        return <Todo key = {index} description = {todo.description} completed = {todo.completed} toggleCompletionStatus = {() => this.toggleCompletionStatus(index)} />
+                        return <Todo key = {index} todoIndex={index} description = {todo.description} completed = {todo.completed} toggleCompletionStatus = {this.toggleCompletionStatus} />
                     })
                 }
                 <CompletionCount todos = {this.state.todos} />
